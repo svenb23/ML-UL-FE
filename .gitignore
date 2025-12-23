@@ -29,9 +29,9 @@ wheels/
 .ipynb_checkpoints/
 
 # Data files (uncomment if needed)
-# data/
-# *.csv
-# *.parquet
+data/
+*.csv
+*.parquet
 
 # Models (uncomment if needed)
 # models/
@@ -59,3 +59,4 @@ logs/
 
 # Info
 info/
+
