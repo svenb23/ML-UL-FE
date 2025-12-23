@@ -1,0 +1,13 @@
+# Core ML libraries
+numpy
+pandas
+scikit-learn
+
+# Visualization
+matplotlib
+seaborn
+
+# Jupyter
+jupyter
+
+# Add more dependencies as needed
