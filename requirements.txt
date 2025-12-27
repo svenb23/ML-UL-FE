@@ -6,8 +6,8 @@ scikit-learn
 # Visualization
 matplotlib
 seaborn
+missingno
 
 # Jupyter
 jupyter
-
-# Add more dependencies as needed
+ipykernel
