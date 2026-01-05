@@ -60,3 +60,17 @@ logs/
 # Info
 info/
 
+# LaTeX build files
+*.aux
+*.bbl
+*.blg
+*.bcf
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+report/PL.pdf
