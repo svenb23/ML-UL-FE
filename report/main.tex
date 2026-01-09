@@ -205,10 +205,22 @@ kontinuierlich zu verbessern. Jeder Durchlauf folgte dabei einem einheitlichen A
 Datenvorverarbeitung, Dimensionsreduktion, Clustering und anschließender Interpretation der Ergebnisse.
 
 \subsection{Erster Durchlauf}
-% TODO: run_01
-
 \subsubsection{Datenexploration und Vorverarbeitung}
-% TODO: Erste Analyse des Datensatzes, Bereinigung, Encoding
+Der Datensatz umfasste 1.433 Teilnehmende und 63 Features, die verschiedene Aspekte der psychischen Gesundheit
+am Arbeitsplatz abdeckten. Die Features ließen sich thematisch in demografische Merkmale, Angaben zum
+Arbeitsumfeld, persönliche psychische Gesundheitssituation, Unterstützung durch aktuelle und frühere Arbeitgeber
+sowie Einstellungen und Stigmatisierungserfahrungen einteilen. Eine initiale Prüfung auf offensichtlich
+irrelevante Spalten ergab keine Kandidaten und wurde aufgrund mangelnden domänenspezifischen
+Wissens nicht weiter verfolgt.
+
+Die Analyse der Datentypen zeigte eine deutliche Dominanz kategorischer Variablen: 56 der 63 Features lagen als
+Objekttyp vor, während lediglich vier ganzzahlige und drei Gleitkomma-Spalten existierten.
+
+Bei der Ausreißeranalyse wurde die Altersspalte untersucht, da diese als einzige numerische Variable anfällig
+für Fehleingaben war. Dabei wurden sechs auffällige Werte identifiziert: 3, 15, 17, 74, 99 und 323 Jahre.
+Die Werte 3, 99 und 323 wurden als offensichtliche Fehleingaben klassifiziert und aus dem Datensatz entfernt.
+Die Grenzfälle 15, 17 und 74 Jahre wurden beibehalten, da sie im Kontext der Technologiebranche als möglich
+eingestuft wurden.
 
 \subsubsection{Dimensionsreduktion}
 % TODO: PCA, t-SNE, UMAP, MDS, LLE
