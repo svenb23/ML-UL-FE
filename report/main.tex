@@ -131,7 +131,13 @@ Maschinelles Lernen - Unsupervised Learning und Feature Engineering DLBDSMLUSL01
 
 \section*{Abkürzungsverzeichnis}
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
-\begin{acronym}[UMAP]
+\begin{acronym}[t-SNE]
+    \acro{GMM}{Gaussian Mixture Models}
+    \acro{LLE}{Locally Linear Embedding}
+    \acro{MDS}{Multidimensional Scaling}
+    \acro{OSMI}{Open Sourcing Mental Illness}
+    \acro{PCA}{Principal Component Analysis}
+    \acro{t-SNE}{t-Distributed Stochastic Neighbor Embedding}
     \acro{UMAP}{Uniform Manifold Approximation and Projection}
 \end{acronym}
 \newpage
@@ -140,7 +146,46 @@ Maschinelles Lernen - Unsupervised Learning und Feature Engineering DLBDSMLUSL01
 \setcounter{page}{1}
 
 \section{Einleitung}
-% TODO: Einleitung schreiben
+Immer mehr Menschen erkranken an psychischen Erkrankungen \parencite{who2025mentalhealth}. Auch in technologieorientierten Berufen
+rücken psychische Belastungen am Arbeitsplatz verstärkt in den Fokus von Unternehmen und Forschung. Die systematische Analyse von Umfragedaten 
+zur psychischen Gesundheit stellt dabei eine zentrale Herausforderung dar, deren Bewältigung maßgeblich zur Entwicklung 
+zielgerichteter Präventionsprogramme und zur Verbesserung der Arbeitsbedingungen beitragen kann. Vor diesem Hintergrund 
+wurde im Rahmen des Moduls „Projekt: Maschinelles Lernen -- Unsupervised Learning und Feature Engineering" an der
+IU Internationalen Hochschule eine umfassende Clusteranalyse von Umfragedaten zur psychischen Gesundheit in der 
+Technologiebranche durchgeführt.
+
+Das primäre Projektziel bestand in der Kategorisierung von Umfrageteilnehmenden anhand ihrer Antworten zu psychischen 
+Belastungen, Arbeitgeberunterstützung und Stigmatisierungserfahrungen mittels unüberwachter Lernverfahren. 
+Die zentrale Forschungsfrage konzentrierte sich darauf, wie durch den Einsatz verschiedener Dimensionsreduktions- und Clustering-Methoden 
+aussagekräftige Teilnehmergruppen identifiziert werden können, die als Grundlage für gezielte Interventionsmaßnahmen der Personalabteilung 
+dienen. Besondere Aufmerksamkeit galt dabei der Interpretierbarkeit der Ergebnisse sowie der Reduktion der hohen Dimensionalität des 
+Datensatzes bei gleichzeitiger Beibehaltung der wesentlichen Informationsstruktur.
+
+Die Datenbasis bildete der OSMI Mental Health in Tech Survey 2016 \parencite{osmi2016mentalhealth}, der auf Kaggle frei verfügbar ist und Antworten 
+von 1.433 Beschäftigten aus technologieorientierten Unternehmen umfasst. Der Datensatz enthält 63 Fragen zu Themen 
+wie diagnostizierte psychische Erkrankungen, Einstellungen gegenüber psychischer Gesundheit am Arbeitsplatz, 
+wahrgenommene Arbeitgeberunterstützung, Stigmatisierungserfahrungen sowie demografische Merkmale. Die Herausforderungen 
+bei der Arbeit mit diesen Daten lagen insbesondere in der hohen Anzahl fehlender Werte, nicht standardisierten 
+Texteingaben z.B bei Geschlechtsangaben, sowie der Notwendigkeit einer geeigneten Kodierung kategorischer Variablen für maschinelle Lernalgorithmen.
+
+Die methodische Vorgehensweise gliederte sich in mehrere aufeinander aufbauende Phasen. Nach einer initialen 
+explorativen Datenanalyse erfolgte eine umfassende Datenvorverarbeitung, die Bereinigung, Normalisierung, 
+Imputation fehlender Werte sowie Feature Engineering umfasste. Anschließend wurden verschiedene Dimensionsreduktionsmethoden, darunter
+\ac{PCA}, \ac{t-SNE}, \ac{UMAP}, \ac{MDS} und
+\ac{LLE}, systematisch evaluiert und verglichen. Für die Clusteranalyse kamen K-Means, \ac{GMM}
+sowie hierarchisches Clustering zum Einsatz, wobei die optimale Clusteranzahl durch verschiedene Evaluationsmetriken bestimmt wurde.
+
+Der gewählte Ansatz zeichnet sich durch seine iterative Vorgehensweise aus, bei der in drei aufeinander aufbauenden Durchläufen 
+die Datenvorverarbeitung und Modellierung schrittweise verfeinert wurden. Durch die Kombination verschiedener Methoden und die sorgfältige 
+Interpretation der Ergebnisse wurde ein Analysesystem geschaffen, das nicht nur statistisch fundierte Cluster identifiziert, sondern auch 
+praxisrelevante Erkenntnisse für die Gestaltung von Präventionsprogrammen liefert.
+
+Die vorliegende Fallstudie dokumentiert systematisch den gesamten Analyseprozess. Nach dieser Einleitung folgt
+die detaillierte Beschreibung der Datenbasis sowie der durchgeführten Vorverarbeitungsschritte. Anschließend werden die
+angewandten Dimensionsreduktions- und Clustering-Methoden erläutert und deren Ergebnisse ausführlich dargestellt.
+Abschließend werden die gewonnenen Erkenntnisse in einem Fazit zusammengefasst und kritisch reflektiert. Da die Analyse
+sensibler Gesundheitsdaten besondere Sorgfalt erfordert, werden zudem ethische und gesellschaftliche Aspekte wie
+Datenschutz, Stigmatisierungsrisiken und der verantwortungsvolle Umgang mit den Ergebnissen eingehend diskutiert.
 
 
 \section{Hauptteil}
@@ -192,6 +237,9 @@ Maschinelles Lernen - Unsupervised Learning und Feature Engineering DLBDSMLUSL01
 
 \subsection{Kritische Reflexion}
 % TODO: Kritische Reflexion
+
+\subsection{Ethische und gesellschaftliche Aspekte}
+% TODO: Ethische Betrachtungen
 
 \subsection{Ausblick}
 % TODO: Ausblick und Verbesserungspotenziale
