@@ -132,6 +132,7 @@ Maschinelles Lernen - Unsupervised Learning und Feature Engineering DLBDSMLUSL01
 \section*{Abkürzungsverzeichnis}
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 \begin{acronym}[t-SNE]
+    \acro{AFAB}{Assigned Female At Birth}
     \acro{GMM}{Gaussian Mixture Models}
     \acro{LLE}{Locally Linear Embedding}
     \acro{MDS}{Multidimensional Scaling}
@@ -223,6 +224,20 @@ Die Werte 3, 99 und 323 wurden als offensichtliche Fehleingaben klassifiziert un
 Die Grenzfälle 15, 17 und 74 Jahre wurden beibehalten, da sie im Kontext der Technologiebranche als möglich
 eingestuft wurden.
 
+Das Freitextfeld für Geschlechtsangaben führte zu 69 unterschiedlichen Einträgen. Diese reichten von
+Schreibvarianten wie „Male", „male", „M" und „Man" über Bezeichnungen wie „non-binary" und „Agender"
+bis hin zu „Transgender woman" oder „AFAB". Da eine differenzierte Betrachtung von biologischem und
+empfundenem Geschlecht über den Fokus dieser Analyse hinausgeht, wurden die Angaben pragmatisch auf Basis
+des bei Geburt zugewiesenen Geschlechts in drei Kategorien zusammengefasst: Male (1.055), Female (338)
+und Other (34).
+
+Die Analyse fehlender Werte ergab, dass 44 der 63 Spalten Lücken aufwiesen (siehe \cref{tab:missing_values_run01}).
+Der Anteil reichte von 0,2\% bis zu 89,9\% pro Spalte. Spalten mit mehr als 70\% fehlenden Werten wurden entfernt, da eine sinnvolle
+Imputation bei diesem Anteil nicht mehr gewährleistet werden konnte. Ebenso wurden die US-Bundesstaaten-Spalten
+ausgeschlossen, da sie nur für amerikanische Teilnehmende relevant waren. Für Fragen zum aktuellen Arbeitgeber
+wurden fehlende Werte bei Selbstständigen mit „Not applicable" gefüllt, da diese Fragen für sie nicht zutrafen.
+Die verbleibenden fehlenden Werte in kategorischen Spalten wurden mit dem Modus imputiert.
+
 \subsubsection{Dimensionsreduktion}
 % TODO: PCA, t-SNE, UMAP, MDS, LLE
 
@@ -305,6 +320,33 @@ Kategorisch & Binär & 7 \\
 Kategorisch & Multi-Value & 4 \\
 Text & Freitext & 2 \\
 Numerisch & Verhältnis & 1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Spalten mit fehlenden Werten (Auszug)}
+\label{tab:missing_values_run01}
+\begin{tabular}{rrl}
+\toprule
+Anzahl & Anteil & Spalte \\
+\midrule
+1286 & 89,9\% & Revealed to client impacted negatively \\
+1226 & 85,7\% & Work time affected percentage \\
+1167 & 81,6\% & Primary role related to tech/IT \\
+1143 & 79,9\% & Know local resources for help \\
+1143 & 79,9\% & Reveal diagnosis to clients \\
+1143 & 79,9\% & Revealed to coworker impacted negatively \\
+1143 & 79,9\% & Productivity affected by mental health \\
+1109 & 77,6\% & Conditions believed to have \\
+863 & 60,3\% & Diagnosed conditions \\
+775 & 54,2\% & Observations made less likely to reveal \\
+721 & 50,4\% & Professional diagnosed conditions \\
+592 & 41,4\% & US state (live) \\
+581 & 40,6\% & US state (work) \\
+420 & 29,4\% & Know employer coverage options \\
+287 & 20,1\% & Comfortable discussing with coworkers \\
 \bottomrule
 \end{tabular}
 \end{table}
