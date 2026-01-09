@@ -214,7 +214,8 @@ irrelevante Spalten ergab keine Kandidaten und wurde aufgrund mangelnden domäne
 Wissens nicht weiter verfolgt.
 
 Die Analyse der Datentypen zeigte eine deutliche Dominanz kategorischer Variablen: 56 der 63 Features lagen als
-Objekttyp vor, während lediglich vier ganzzahlige und drei Gleitkomma-Spalten existierten.
+Objekttyp vor, während lediglich vier ganzzahlige und drei Gleitkomma-Spalten existierten. Eine differenziertere
+Betrachtung der Datentypen ergab die in \cref{tab:datentypen_run01} dargestellte Verteilung.
 
 Bei der Ausreißeranalyse wurde die Altersspalte untersucht, da diese als einzige numerische Variable anfällig
 für Fehleingaben war. Dabei wurden sechs auffällige Werte identifiziert: 3, 15, 17, 74, 99 und 323 Jahre.
@@ -290,6 +291,22 @@ eingestuft wurden.
 \section*{Anhang}
 \addcontentsline{toc}{section}{Anhang}
 
-% TODO: Tabellen und Abbildungen für den Anhang
+\begin{table}[H]
+\centering
+\caption{Verteilung der Datentypen nach Skalenniveau}
+\label{tab:datentypen_run01}
+\begin{tabular}{llr}
+\toprule
+Haupttyp & Untertyp & Anzahl \\
+\midrule
+Kategorisch & Nominal & 42 \\
+Kategorisch & Ordinal & 7 \\
+Kategorisch & Binär & 7 \\
+Kategorisch & Multi-Value & 4 \\
+Text & Freitext & 2 \\
+Numerisch & Verhältnis & 1 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \end{document}
