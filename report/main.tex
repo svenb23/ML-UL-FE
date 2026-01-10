@@ -307,6 +307,20 @@ die Sensitivität gegenüber der Wahl der Nachbaranzahl sowie die Anfälligkeit 
 ungleichmäßig verteilten Stichproben \parencite[S.~98--102]{iu2025mluslfe}. Die Methode wurde mit 15
 Nachbarn auf den PCA-reduzierten Daten angewandt, wobei der Rekonstruktionsfehler als Qualitätsmaß diente.
 
+\ac{t-SNE} eignet sich besonders für die Visualisierung hochdimensionaler Daten, da die Methode lokale
+Strukturen betont und Cluster visuell hervorhebt. Der Vorteil liegt in der oft beeindruckenden visuellen
+Trennung von Gruppen. Nachteile sind die fehlende Reproduzierbarkeit ohne festen Random-Seed, die hohe
+Rechenzeit sowie die Tatsache, dass globale Distanzen nicht erhalten bleiben und die Ergebnisse stark
+vom Perplexity-Parameter abhängen \parencite{wattenberg2016tsne}. Die Anwendung erfolgte mit
+einer Perplexity von 30 auf den PCA-vorverarbeiteten Daten.
+
+\ac{UMAP} als modernste der eingesetzten Methoden kombiniert die Vorteile von \ac{t-SNE} mit besserer
+Skalierbarkeit und Erhaltung globaler Strukturen. Die Methode basiert auf topologischen Konzepten und
+bietet schnellere Berechnungszeiten bei vergleichbarer Visualisierungsqualität. Nachteilig ist die
+Abhängigkeit von mehreren Hyperparametern sowie die geringere theoretische Fundierung im Vergleich zu
+klassischen Methoden \parencite{mcinnes2018umap}. Die Parameter wurden auf 15 Nachbarn und
+eine minimale Distanz von 0,1 gesetzt.
+
 \subsubsection{Clustering}
 % TODO: k-Means, GMM, Hierarchisches Clustering
 
