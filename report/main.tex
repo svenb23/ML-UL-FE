@@ -132,12 +132,15 @@ Maschinelles Lernen - Unsupervised Learning und Feature Engineering DLBDSMLUSL01
 \section*{Abkürzungsverzeichnis}
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 \begin{acronym}[t-SNE]
+    \acro{ADHD}{Attention Deficit Hyperactivity Disorder}
     \acro{AFAB}{Assigned Female At Birth}
     \acro{GMM}{Gaussian Mixture Models}
     \acro{LLE}{Locally Linear Embedding}
     \acro{MDS}{Multidimensional Scaling}
+    \acro{OCD}{Obsessive-Compulsive Disorder}
     \acro{OSMI}{Open Sourcing Mental Illness}
     \acro{PCA}{Principal Component Analysis}
+    \acro{PTSD}{Post-traumatic Stress Disorder}
     \acro{t-SNE}{t-Distributed Stochastic Neighbor Embedding}
     \acro{UMAP}{Uniform Manifold Approximation and Projection}
 \end{acronym}
@@ -237,6 +240,25 @@ Imputation bei diesem Anteil nicht mehr gewährleistet werden konnte. Ebenso wur
 ausgeschlossen, da sie nur für amerikanische Teilnehmende relevant waren. Für Fragen zum aktuellen Arbeitgeber
 wurden fehlende Werte bei Selbstständigen mit „Not applicable" gefüllt, da diese Fragen für sie nicht zutrafen.
 Die verbleibenden fehlenden Werte in kategorischen Spalten wurden mit dem Modus imputiert.
+
+Besondere Aufmerksamkeit erforderten Spalten mit Mehrfachnennungen, bei denen Teilnehmende mehrere Optionen
+auswählen konnten. Dies betraf insbesondere die diagnostizierten psychischen Erkrankungen sowie die
+Arbeitspositionen. Für diese Spalten wurden verschiedene Encoding-Strategien evaluiert: einfaches One-Hot-Encoding,
+Count-Encoding, Primärkategorie-Extraktion und gruppiertes One-Hot-Encoding. Die Wahl fiel auf gruppiertes
+One-Hot-Encoding, das die Vorteile der Informationserhaltung mit einer Reduktion der Dimensionalität verbindet.
+
+Die psychischen Erkrankungen wurden in vier semantische Gruppen zusammengefasst: angstbezogene Störungen
+(Anxiety, \ac{OCD}, \ac{PTSD}, Stress), stimmungsbezogene Störungen (Depression, Bipolar), neurologische
+Entwicklungsstörungen (\ac{ADHD}) sowie sonstige Erkrankungen (Substanzmissbrauch, Essstörungen, Persönlichkeits-
+und psychotische Störungen). Analog wurden die Arbeitspositionen in die Gruppen Developer, Operations,
+Leadership und Other unterteilt. Durch diese Gruppierung entstanden 12 neue binäre Spalten anstelle von
+geschätzten 44 Einzelkategorien.
+
+Für ordinale Variablen mit natürlicher Rangordnung wurde eine numerische Kodierung gewählt, die die
+Reihenfolge erhält und sinnvolle Distanzberechnungen ermöglicht. Sechs Spalten wurden entsprechend
+transformiert: Unternehmensgröße (1--6, wobei 0 für Selbstständige), Schwierigkeit der Krankmeldung
+(1--5), Offenheit gegenüber Familie und Freunden (1--5), Remote-Arbeitsanteil (0--2) sowie die
+Beeinträchtigung der Arbeit durch psychische Probleme mit und ohne Behandlung (jeweils 0--3).
 
 \subsubsection{Dimensionsreduktion}
 % TODO: PCA, t-SNE, UMAP, MDS, LLE
