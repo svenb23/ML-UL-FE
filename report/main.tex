@@ -329,9 +329,19 @@ hindeutet. Die reduzierten Datensätze aller Methoden wurden für das nachfolgen
 um die beste Kombination aus Dimensionsreduktion und Clustering-Algorithmus zu ermitteln.
 
 \subsubsection{Clustering}
-% TODO: k-Means, GMM, Hierarchisches Clustering
+Für das Clustering wurden die reduzierten 2D-Datensätze aller fünf Dimensionsreduktionsmethoden geladen.
+Zur Bestimmung der optimalen Clusteranzahl kamen die Elbow-Methode und die Silhouette-Analyse zum Einsatz,
+wobei k-Werte von 2 bis 10 evaluiert wurden. Die Elbow-Methode analysiert den Abfall der Inertia
+(Within-Cluster Sum of Squares), während der Silhouette-Score die Qualität der Clusterzuordnung misst
+\parencite[S.~45--52]{iu2025mluslfe}. Basierend auf beiden Metriken wurde k=3 als optimale Clusteranzahl
+gewählt.
 
-\subsubsection{Erkenntnisse}
+k-Means wurde als erster Clustering-Algorithmus auf allen fünf reduzierten Datensätzen angewandt. Der
+Algorithmus ordnet jeden Datenpunkt iterativ dem nächsten Clusterzentrum zu und verschiebt die Zentren,
+bis die Abstände innerhalb der Cluster minimal sind. Vorteile sind die einfache Implementierung, schnelle Konvergenz und gute Skalierbarkeit.
+Nachteilig wirken sich die Sensitivität gegenüber der Initialisierung, die Annahme sphärischer Cluster
+sowie die Notwendigkeit einer vordefinierten Clusteranzahl aus \parencite[S.~37--52]{iu2025mluslfe}. 
+
 % TODO: Was wurde gelernt? Was muss verbessert werden?
 
 \subsection{Zweiter Durchlauf}
