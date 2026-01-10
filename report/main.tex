@@ -275,7 +275,37 @@ um ihn für die nachfolgenden Analyseschritte zur Verfügung zu stellen. Der fin
 Zeilen und 159 Spalten. 
 
 \subsubsection{Dimensionsreduktion}
-% TODO: PCA, t-SNE, UMAP, MDS, LLE
+Für die Dimensionsreduktion wurde der vorverarbeitete Datensatz geladen und zunächst mit dem StandardScaler
+normalisiert. Diese Standardisierung transformiert jede Variable auf einen Mittelwert von 0 und eine
+Standardabweichung von 1, was für distanzbasierte Methoden wie \ac{PCA} und \ac{t-SNE} essenziell ist,
+da ansonsten Variablen mit größeren Wertebereichen die Ergebnisse dominieren würden.
+
+Die \ac{PCA} wurde als erste Methode eingesetzt, da sie eine lineare, deterministische Transformation bietet,
+die die Hauptvarianzrichtungen im Datensatz identifiziert. Ihre Vorteile liegen in der Interpretierbarkeit
+der Komponenten, der schnellen Berechnung und der Möglichkeit, die erklärte Varianz zu quantifizieren.
+Nachteilig ist, dass \ac{PCA} nur lineare Zusammenhänge erfasst und bei komplexen, nicht-linearen Strukturen
+an ihre Grenzen stößt \parencite[S.~77--84]{iu2025mluslfe}. Die Analyse ergab, dass 49 Komponenten für 80\% und 80 Komponenten für 95\% der
+erklärten Varianz benötigt wurden. Ein Indikator für die hohe Komplexität des Datensatzes nach dem
+One-Hot-Encoding. Für die 2D-Visualisierung erklärten die ersten beiden Hauptkomponenten zusammen nur etwa
+8\% der Gesamtvarianz, was eine begrenzte Aussagekraft der Projektion impliziert. Dennoch ließen sich
+in der Projektion vier visuell unterscheidbare Cluster erkennen. Als Vorverarbeitungsschritt
+für rechenintensive Methoden wurde eine \ac{PCA} mit 50 Komponenten durchgeführt, die etwa 80\% der Varianz
+erhielt und gleichzeitig die Dimensionalität deutlich reduzierte.
+
+\ac{MDS} wurde als zweite Methode eingesetzt, um die paarweisen Distanzen zwischen den Datenpunkten in einer
+niedrigdimensionalen Darstellung zu erhalten. Der Vorteil von \ac{MDS} liegt in der intuitiven Interpretation:
+Ähnliche Datenpunkte werden räumlich nah beieinander positioniert. Zudem eignet sich die Methode für
+verschiedene Distanzmetriken. Als Nachteile sind die hohe Rechenzeit bei großen Datensätzen sowie die
+Sensitivität gegenüber Ausreißern zu nennen \parencite[S.~89--94]{iu2025mluslfe}. Die Anwendung erfolgte
+auf den PCA-vorverarbeiteten Daten mit 50 Komponenten. Der normalisierte Stress-Wert diente als Gütekriterium
+für die Qualität der Projektion.
+
+\ac{LLE} als dritte Methode zielt darauf ab, lokale Nachbarschaftsstrukturen zu erhalten, indem jeder
+Datenpunkt als lineare Kombination seiner Nachbarn rekonstruiert wird. Der Vorteil liegt in der Fähigkeit,
+nicht-lineare Mannigfaltigkeiten zu entfalten und komplexe Strukturen sichtbar zu machen. Nachteilig ist
+die Sensitivität gegenüber der Wahl der Nachbaranzahl sowie die Anfälligkeit bei verrauschten Daten oder
+ungleichmäßig verteilten Stichproben \parencite[S.~98--102]{iu2025mluslfe}. Die Methode wurde mit 15
+Nachbarn auf den PCA-reduzierten Daten angewandt, wobei der Rekonstruktionsfehler als Qualitätsmaß diente.
 
 \subsubsection{Clustering}
 % TODO: k-Means, GMM, Hierarchisches Clustering
