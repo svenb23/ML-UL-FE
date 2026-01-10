@@ -321,6 +321,13 @@ Abhängigkeit von mehreren Hyperparametern sowie die geringere theoretische Fund
 klassischen Methoden \parencite{mcinnes2018umap}. Die Parameter wurden auf 15 Nachbarn und
 eine minimale Distanz von 0,1 gesetzt.
 
+Der Vergleich aller fünf Methoden zeigt deutliche Unterschiede in der Strukturerhaltung. \ac{PCA}, \ac{t-SNE}
+und \ac{UMAP} liefern visuell gut separierte Cluster mit vier bis fünf erkennbaren Gruppen. \ac{MDS} zeigt
+eine eher zusammenhängende Punktwolke ohne klare Trennung. \ac{LLE} weist problematisches Verhalten auf:
+Fast alle Datenpunkte werden zusammengepresst, was auf eine ungeeignete Parameterwahl oder Datenstruktur
+hindeutet. Die reduzierten Datensätze aller Methoden wurden für das nachfolgende Clustering gespeichert,
+um die beste Kombination aus Dimensionsreduktion und Clustering-Algorithmus zu ermitteln.
+
 \subsubsection{Clustering}
 % TODO: k-Means, GMM, Hierarchisches Clustering
 
