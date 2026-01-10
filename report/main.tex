@@ -260,6 +260,20 @@ transformiert: Unternehmensgröße (1--6, wobei 0 für Selbstständige), Schwier
 (1--5), Offenheit gegenüber Familie und Freunden (1--5), Remote-Arbeitsanteil (0--2) sowie die
 Beeinträchtigung der Arbeit durch psychische Probleme mit und ohne Behandlung (jeweils 0--3).
 
+Die nominalen Variablen ohne natürliche Ordnung wurden mittels One-Hot-Encoding transformiert. Eine Ausnahme
+bildeten die Länderspalten mit 53 verschiedenen Ausprägungen: Aufgrund der starken Dominanz der USA (58,6\%
+der Teilnehmenden) wurden diese binär kodiert (USA vs. Non-USA), um die Dimensionalität zu begrenzen.
+
+Die beiden Freitextfelder hätten mittels Natural Language Processing weiterverarbeitet werden können,
+beispielsweise durch Sentimentanalyse \parencite{behrens2024sentimentanalyse}, Topic Modeling oder die
+Extraktion von Text-Embeddings.
+Da der Fokus dieser Analyse jedoch auf den strukturierten Daten lag und die Integration von Textfeatures
+die Komplexität erheblich erhöht hätte, wurden die Freitextfelder erst einmal aus dem Datensatz entfernt.
+
+Nach Abschluss aller Vorverarbeitungsschritte wurde der transformierte Datensatz als CSV-Datei gespeichert,
+um ihn für die nachfolgenden Analyseschritte zur Verfügung zu stellen. Der finale Datensatz umfasste 1.427
+Zeilen und 159 Spalten. 
+
 \subsubsection{Dimensionsreduktion}
 % TODO: PCA, t-SNE, UMAP, MDS, LLE
 
