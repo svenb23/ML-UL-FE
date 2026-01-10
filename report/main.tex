@@ -340,7 +340,26 @@ k-Means wurde als erster Clustering-Algorithmus auf allen fünf reduzierten Date
 Algorithmus ordnet jeden Datenpunkt iterativ dem nächsten Clusterzentrum zu und verschiebt die Zentren,
 bis die Abstände innerhalb der Cluster minimal sind. Vorteile sind die einfache Implementierung, schnelle Konvergenz und gute Skalierbarkeit.
 Nachteilig wirken sich die Sensitivität gegenüber der Initialisierung, die Annahme sphärischer Cluster
-sowie die Notwendigkeit einer vordefinierten Clusteranzahl aus \parencite[S.~37--52]{iu2025mluslfe}. 
+sowie die Notwendigkeit einer vordefinierten Clusteranzahl aus \parencite[S.~37--52]{iu2025mluslfe}.
+
+Das \ac{GMM} wurde als zweiter Algorithmus eingesetzt. Es modelliert die Daten als Mischung von
+Gaußverteilungen und erlaubt dadurch elliptische Clusterformen. Im Gegensatz zu k-Means liefert \ac{GMM} probabilistische Zuordnungen, sodass jeder
+Datenpunkt mit einer Wahrscheinlichkeit zu jedem Cluster gehört. Vorteile sind die Flexibilität bei
+der Clusterform und die weichen Zuordnungen. Nachteile umfassen die höhere Rechenzeit, die Sensitivität
+gegenüber der Initialisierung sowie die Gefahr der Überanpassung bei zu vielen Komponenten
+\parencite[S.~52--66]{iu2025mluslfe}.
+
+Als dritter Algorithmus kam hierarchisches Clustering mit Ward-Linkage zum Einsatz. Es bildet eine
+Baumstruktur, indem schrittweise die Cluster mit der geringsten Varianzerhöhung zusammengeführt werden. Ein Dendrogramm visualisiert diese Hierarchie und
+ermöglicht die Wahl der Clusteranzahl durch Setzen eines Schwellenwerts. Vorteile sind die intuitive
+Interpretierbarkeit und die Unabhängigkeit von einer vordefinierten Clusteranzahl. Nachteile sind die
+hohe Rechenzeit bei großen Datensätzen sowie die Irreversibilität der Zusammenführungen
+\parencite[S.~66--72]{iu2025mluslfe}. Das Dendrogramm wurde auf einer Stichprobe von 200 Datenpunkten
+erstellt, um die Rechenzeit zu begrenzen.
+
+Abschließend wurde die beste Kombination aus Dimensionsreduktion und Clustering-Algorithmus anhand des
+höchsten Silhouette-Scores ermittelt. Die resultierenden Cluster-Labels wurden dem vorverarbeiteten
+Datensatz hinzugefügt und für die nachfolgende Interpretation gespeichert.
 
 % TODO: Was wurde gelernt? Was muss verbessert werden?
 
